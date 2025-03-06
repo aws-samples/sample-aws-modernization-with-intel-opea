@@ -11,23 +11,23 @@ Parameters:
   ProjectName:
     Type: String
     Description: Project Name
-    Default: xxxxxx
+    Default: opea
   WebsiteBucket:
     Type: String
     Description: Website S3 bucket name
-    Default: xxxxxx.awsworkshop.io
+    Default: opea.awsworkshop.io
   CloudFrontDistroId:
     Type: String
     Description: CloudFront distribution ID
-    Default: XXX
+    Default: E2DKZXIMFX2FNX
   GitHubRepo:
     Type: String
     Description: GitHub repository name
-    Default: aws-modernization-with-xXx
+    Default: sample-aws-modernization-with-intel-opea
   FullRepoURL:
     Type: String
     Description: The full URL to the repo
-    Default: https://github.com/aws-samples/aws-modernization-with-xXx.git
+    Default: https://github.com/aws-samples/sample-aws-modernization-with-intel-opea.git
   GitHubOwner:
     Type: String
     Description: GitHub owner name
