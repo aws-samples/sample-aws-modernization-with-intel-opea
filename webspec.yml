@@ -10,6 +10,7 @@ phases:
       - chmod +x hugo
       - mv hugo /usr/local/bin/hugo
       - hugo version
+      
 
   pre_build:
     commands:
