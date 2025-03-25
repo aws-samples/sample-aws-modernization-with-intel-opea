@@ -1,7 +1,10 @@
 ---
-title : "IMPORTANT:How to Clean Up Your Environment"
-weight : 1500
+title : "Clean Up"
+chapter : true
+weight : 5000
 ---
+
+# How to Clean Up Your Environment
 
 ## Overview
 
