@@ -1,5 +1,5 @@
 ---
-title : "Module 5: Use Bedrock as an LLM"
+title : "Module 4: Use Bedrock as an LLM"
 weight : 501
 ---
 
