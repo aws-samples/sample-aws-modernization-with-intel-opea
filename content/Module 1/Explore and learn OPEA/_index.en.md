@@ -1,8 +1,8 @@
 +++
-title = "Explore the OPEA ChatQnA deployment "
+title = "Explore OPEA ChatQnA deployment "
 weight = 201
 +++
-# Explore OPEA microservices deployment
+
 
 Let's now explore the OPEA ChatQnA RAG deployment. As mentioned, it's a microservices blueprint designed for scalability, resilience, and flexibility. In this task you will explore each microservice, the purpose of exploring each microservice is to help you understand how each component contributes to the overall application. This learning path will guide you through the system, illustrating the role of each service and how they work together.
 
