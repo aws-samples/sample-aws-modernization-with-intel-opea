@@ -7,7 +7,7 @@ OpenSearch provides a wealth of features for searching your data. In this sectio
 
 ## Schema and mapping
 
-When you use OpenSearch, you can apply a schema, called the `mapping` to your index. The mapping determines how OpenSearch analyzes and enables the fields in your JSON documents for retrieval. OpenSearch has automatic schema detection for quick starts, but for most situations, it's best to set the schema directly. You do this when you create the index. Of coourse, OPEA and the OpenSearch microservice have set the mapping for you, but you can retrieve it for the embeddings index with the below command.
+When you use OpenSearch, you can apply a schema, called the `mapping` to your index. The mapping determines how OpenSearch analyzes and enables the fields in your JSON documents for retrieval. OpenSearch has automatic schema detection for quick starts, but for most situations, it's best to set the schema directly. You do this when you create the index. Of course, OPEA and the OpenSearch microservice have set the mapping for you, but you can retrieve it for the embeddings index with the below command.
 
 :::code{showCopyAction=true language=bash}
 curl -XGET https://localhost:9200/rag-opensearch/_mapping --insecure -u admin:strongOpea0! | jq .

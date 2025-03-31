@@ -22,8 +22,7 @@ The stack sets up the following components:
     -   Module 1: ChatQnA **Default**
     -   Module 2: ChatQnA with Guardrails
     -   Module 3: ChatQnA with OpenSearch (open source) as the vector database
-    -   Module 4: ChatQnA with Remote Inference (Denvr) as the LLM
-    -   Module 5: ChatQnA with Bedrock as the LLM
+    -   Module 4: ChatQnA with Bedrock as the LLM
 
 2. On the Quick create stack page, note that the stack name is already set. Before running the stack, you'll need to do the following:
 

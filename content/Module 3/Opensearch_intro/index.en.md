@@ -13,14 +13,13 @@ Search engines are specialized members of the databases world, designed to work 
 
 Recent advances in natural language have expanded the possibilities for how we interact with and retrieve relevant information. Large Language Models (LLMs) are able to encode language into high-dimension vector spaces, capturing the meaning of language in a way that enables matching meaning for meaning. Additionally, LLMs are capable of generating realistic natural-language responses for natural-language questions. Locating information now involves the possibility of conversing with a chat bot, adding textual and other types of information like images, audio, and video to the way you specify your information goal.
 
-OpenSearch has two different uses in AI scenarios. OpenSearch can store and use vector embeddings, produced by embedding LLMs, to perform **semantic search**. In semantic search, OpenSearch uses nearest-neighbor matching on an embedding produced by the query to find neighbors in the vector space. In generative AI, OpenSearch can serve as the **knowledge base** for retrieving relevant information to add to the prompt. You've already seen how Redis can serve as a vector database. In this Task, you'll explore OpenSearch's search capabilities, its vector capabilities, and see how it integrates with OPEA.
-::::
+OpenSearch has two different uses in AI scenarios. OpenSearch can store and use vector embeddings, produced by embedding LLMs, to perform **semantic search**. In semantic search, OpenSearch uses nearest-neighbor matching on an embedding produced by the query to find neighbors in the vector space. In generative AI, OpenSearch can serve as the **knowledge base** for retrieving relevant information to add to the prompt. You've already seen how Redis can serve as a vector database. In this task, you'll explore OpenSearch's search capabilities, its vector capabilities, and see how it integrates with OPEA.
 
 # How does the architecture change?
 
 ![OPEA architecture including OpenSearch](/static/images/opea-opensearch-arch.jpg)
 
-Thanks to the interchangeability offered by OPEA, most of the components from the default [ChatQnA example](https://github.com/opea-project/GenAIExamples/tree/main/ChatQnA) (Module 1). Of course, for this module, you'll need to deploy OpenSearch. Additionally, you'll use a **retriever** and a **data prep** microservice designed to work with OpenSearch's query and indexing APIs. You can find these components in the [OPEA GitHub project's components directory](https://github.com/opea-project/GenAIComps/tree/main/comps).
+Thanks to the interchangeability offered by OPEA, most of the components from the default [ChatQnA example](https://github.com/opea-project/GenAIExamples/tree/main/ChatQnA) (Module 1). Of course, for this module, you'll need to deploy OpenSearch. Additionally, you'll use a **retriever** and a **data prep** microservice designed to work with OpenSearch's query and indexing APIs. You can find these components in the [OPEA GitHub project's components directory](https://github.com/opea-project/GenAIComps/tree/main/comps/third_parties/opensearch).
 
 ## Deploying ChatQnA using OpenSearch as vector database
 
@@ -69,9 +68,9 @@ Schematically, you are now talking to OpenSearch via the OpenSearch-specific com
 
 ### Learn about OpenSearch's distributed system
 
-OpenSearch is a distributed database, that runs on a cluster of nodes. The nodes in an OpenSearch cluster can take on various roles, and requests are routed based on the roles of the nodes. Nodes can have more than one role and act according to all of the roles assigned to them. Some important node roles are
+OpenSearch is a distributed database that runs on a cluster of nodes. The nodes in an OpenSearch cluster can take on various roles, and requests are routed based on the roles of the nodes. Nodes can have more than one role and act according to all of the roles assigned to them. Some important node roles are
 
-* Data: Nodes with the `data` role are the workers in the distributed system. They store data, and process requests, including indexing and search requests.
+* Data: Nodes with the `data` role are the workers in the distributed system. They store data as well as process indexing and search requests.
 * Cluster manager: Nodes with the `master` role are  orchestrators of the cluster. They store and distribute the cluster state, and keep track of the nodes in the system. While nodes *can* have both `data` and `master` roles, it's a good idea to have different hardware for these different functions.
 * ML: Nodes with the `ml` role deploy and run OpenSearch's [ml-commons](https://github.com/opensearch-project/ml-commons) plugin, which can host ML models, including large language models.
 

@@ -8,6 +8,10 @@ Now that you've verified all services are running, let’s take a look at the UI
 
 To access the UI, open any browser and go to the DNS of the `ChatQnA Bedrock Load Balancer`: *http://bedrock-ingress-xxxxxxx.us-east-2.elb.amazonaws.com* (Modify with your `bedrock-ingress`DNS URL)
 
+:::alert
+Be sure your URL used is *http* instead of *https*.
+:::
+
 In the UI you can see the chatbot to interact with it
 
 ![ChatQnA_UI](/static/images/chatqna_ui.png)

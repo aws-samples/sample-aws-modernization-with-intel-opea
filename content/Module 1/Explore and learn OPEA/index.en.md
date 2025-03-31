@@ -12,7 +12,7 @@ Every OPEA configuration is built on three main parts:
 ![OPEA Microservices](/static/images/microservices-arch.png)
 
 
-- **Megaservice** : Microservice "orchestrator". When deploying an end-to-end application with multiple parts involved, there is needed to specify how the flow will be within the microservices. You can learn more from [OPEA documentation](https://github.com/opea-project/GenAIComps?tab=readme-ov-file#megaservice)
+- **Megaservice** : Microservice "orchestrator". When deploying an end-to-end application with multiple parts involved, there is needed to specify how the flow will be within the microservices. You can learn more from [OPEA documentation](https://opea-project.github.io/latest/GenAIComps/README.html#megaservice)
 
 - **Gateway** : A gateway is the interface for users to access to the `megaservice` It acts as the entry point for incoming requests, routing them to the appropriate Microservices within the megaservice architecture.
 
@@ -71,8 +71,8 @@ This service isn't directly exposed, but you can access it directly from the Loa
 You will use curl to send a request to an API endpoint to test the functionality of each microservice separately. The purpose is to ask a question, such as **"What was the revenue of Nike in 2023?"**, and verify that the API responds correctly. This helps ensure that all services are working as expected.
 
 :::code{showCopyAction=true language=bash}
-curl http://<**Chatqna-ingress Load Balancer DNS**>/v1/chatqna     
-    -H "Content-Type: application/json"     
+curl http:// <**Chatqna-ingress Load Balancer DNS**>/v1/chatqna \
+    -H "Content-Type: application/json" \
     -d '{"messages": "What was the revenue of Nike in 2023?"}'
 :::
 
@@ -115,7 +115,7 @@ Embeddings are a key component for RAG:
 
 •	***Improving Model Performance***: Embeddings enable RAG models to generalize better by leveraging semantic similarities, facilitating more accurate information retrieval, and improving the quality of generated content.
 
-OPEA provides multiple options to run your embeddings microservice, as detailed in the [OPEA embedding documentation](https://github.com/opea-project/GenAIComps/tree/main/comps/embeddings): 
+OPEA provides multiple options to run your embeddings microservice, as detailed in the [OPEA embedding documentation](https://opea-project.github.io/latest/GenAIComps/comps/embeddings/src/README.html): 
 
 In this case, ChatQnA uses [Hugging Face TEI](https://huggingface.co/docs/text-embeddings-inference/en/index) microservice running the embedding model `BAAI/bge-large-en-v1.5` locally. 
 
@@ -152,7 +152,7 @@ The Vector Database microservice is a crucial component in the RAG application a
 
 #### Using Redis as a Vector Database
 
-In this Task, you use Redis as the vector database. You can find all of the supported alternatives in the [OPEA vector store repository](https://github.com/opea-project/GenAIComps/tree/main/comps/vectorstores)
+In this Task, you use Redis as the vector database. You can find all of the supported alternatives in the [OPEA vector store repository](https://github.com/opea-project/GenAIComps/tree/main/comps/third_parties)
 
 A Vector Database (VDB) is a specialized database designed to store and manage high-dimensional vectors—numeric representations of data points like words, sentences, or images. In AI and machine learning, these vectors are typically embeddings, which capture the meaning and relationships of data in a format that algorithms can process efficiently, as we have shown before.
 
@@ -164,7 +164,7 @@ Specifically, this microservice receives data (such as documents), processes it 
 
 To test it and help the model answer the initial question **What was Nike revenue in 2023?**, you will need to upload a context file (revenue report) to be processed. 
 
-Execute the following command to download a sample [Nike revenue report](https://github.com/opea-project/GenAIComps/blob/main/comps/retrievers/redis/data/nke-10k-2023.pdf) to the nginx pod (if you are no longer logged in to the NGinx pod, be sure to use the above command to log in again):
+Execute the following command to download a sample [Nike revenue report](https://github.com/opea-project/GenAIComps/blob/main/comps/third_parties/pathway/src/data/nke-10k-2023.pdf) to the nginx pod (if you are no longer logged in to the NGinx pod, be sure to use the above command to log in again):
 
 1.  Download the document to the microservice :
 :::code{showCopyAction=true language=bash}
@@ -220,7 +220,7 @@ Next, the retrieved information is combined with the input prompt that is sent t
 
 Finally, you will see how the LLM utilizes the enriched prompt to generate a coherent and contextually accurate response. By leveraging RAG, the application effectively delivers answers that are tailored to the user's query, grounded in the most relevant and up-to-date information from the knowledge base.
 
-The microservices involved in this stage are `embeddings`,`vector db`,`retriever`,`reranking` and finally the `LLM`
+The microservices involved in this stage are `embeddings`,`vector db`,`retriever`,`reranking` and finally the `LLM`.
 
 ![Prompting](/static/images/prompting_2.png)
 
@@ -331,7 +331,7 @@ The Reranking Microservice, fueled by reranking models, is a straightforward yet
 
 ![Reranker](/static/images/reranking_flow.png)
 
-OPEA has [multiple options](https://github.com/opea-project/GenAIComps/tree/main/comps/reranks) for re-rankers. For this lab, you'll use the Hugging Face TEI for re-ranking. It is the `chatqna-teirerank` microservice in your cluster.
+OPEA has [multiple options](https://github.com/opea-project/GenAIComps/tree/main/comps/rerankings/src ) for re-rankers. For this lab, you'll use the Hugging Face TEI for re-ranking. It is the `chatqna-teirerank` microservice in your cluster.
 
 The reranker will use `similar_docs` from the previous stage and compare it with the question *What was Nike Revenue in 2023?* to check the quality of the retrieved documents.
 
@@ -384,7 +384,7 @@ The following output has been formatted for better readability. Your results are
 The server responds with a JSON array containing objects with two fields: index and score. This indicates how the snippets are ranked based on their relevance to the query: :code[{"index":2,"score":0.9972289}] means the first text (index 0) has a high relevance score of approximately 0.7982.
 :code[{"index":0,"score":0.9776342},{"index":3,"score":0.9296986},{"index":1,"score":0.84730965}] indicates that the other snippets (index 3,1 and 2) have a much lower score. 
 
-As you can see from `similar_doc` the id=2 has the below information where it EXACTLY refers to the revenue for 2023!
+As you can see from `similar_docs` the id=2 has the below information where it EXACTLY refers to the revenue for 2023!
 
 :::code{showCopyAction=false language=json }
 "text": "RESULTS OF OPERATIONS\n(Dollars in millions, except per share data)\nFISCAL 2023\nFISCAL 2022\n% CHANGE\nFISCAL 2021\n% CHANGE

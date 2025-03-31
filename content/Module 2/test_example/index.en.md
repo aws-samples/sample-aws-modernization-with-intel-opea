@@ -49,7 +49,7 @@ We can see how the prompt is probing for information on an activity that is ille
 
 ![Block](/static/images/violated.png)
  
-The Guardrails MicroService evaluates queries against ethical and legal standards to block potentially illegal or unethical requests. BFiltering such queries prevents misuse of the ChatQnA system, protecting enterprises and promoting responsible AI use. This microservice serves as a crucial defense, ensuring the system's integrity and user safety.
+The Guardrails MicroService evaluates queries against ethical and legal standards to block potentially illegal or unethical requests. Filtering such queries prevents misuse of the ChatQnA system, protecting enterprises and promoting responsible AI use. This microservice serves as a crucial defense, ensuring the system's integrity and user safety.
  
 The following response is provided by the Guardrails microservice, and by extension the ChatQnA pipeline:
 ```
@@ -209,6 +209,12 @@ data: [DONE]
 :::
 Through vigilant application of these output guardrails, we can ensure that our AI system remains a reliable and trustworthy tool for users. It not only prevents the propagation of harmful content but also reinforces our commitment to upholding the highest standards of AI ethics and safety.
 
+Exit the ngnix POD:
+You may find "pending jobs", please ignore it and try again.
+
+```
+root@chatqna-nginx-deployment-XXXXXXXXXXXX:/# exit
+```
 
 # Conclusion 
 In this workshop, you learned how the Guardrails microservice ensures the safety of AI interactions by filtering out unsafe prompts. You explored how the Meta-Llama-Guard-2-8B model classifies queries using a taxonomy of harmful content, preventing illegal or unethical requests from passing through the system. By testing both safe and unsafe prompts, you gained hands-on experience with how the system protects users and upholds ethical standards in AI applications.
