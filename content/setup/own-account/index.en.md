@@ -22,8 +22,7 @@ The stack sets up the following components:
     -   Module 1: ChatQnA **Default**
     -   Module 2: ChatQnA with Guardrails
     -   Module 3: ChatQnA with OpenSearch (open source) as the vector database
-    -   Module 4: ChatQnA with Remote Inference (Denvr) as the LLM
-    -   Module 5: ChatQnA with Bedrock as the LLM
+    -   Module 4: ChatQnA with Bedrock as the LLM
 
 2. On the Quick create stack page, note that the stack name is already set. Before running the stack, you'll need to do the following:
 
@@ -35,20 +34,15 @@ The stack sets up the following components:
 
     - *ModelID* : In most cases OPEA uses [Text Generation Inference toolkit](https://huggingface.co/docs/text-generation-inference/en/index). You can use any model supported from [this list](https://huggingface.co/docs/text-generation-inference/en/supported_models). Use Hugging Face model id.
 
-    - *OpeaRoleArn* : Fill in the ARN or name of the role for the principal that you're using. If you're not sure what to use, look at the user info displayed in the upper right corner of the screen, which may or may not contain a forward slash. 
-    
-        If the name does not contain a forward-slash, copy the whole name. If it contains a forward slash, just take the part before the slash. For example, if it says "USER" you would input "USER", but if it says "ADMIN-ROLE/USER", you would just input "ADMIN-ROLE". 
-    
-        Or run the following command to get your arn
+    - *OpeaRoleArn* : Run the following command to get your arn
 
 :::code{showCopyAction=true}
 aws sts get-caller-identity --query 'Arn' --output text | awk -F: '{print $NF}' | (read id; if [[ $id == *"user"* ]]; then aws sts get-caller-identity --query 'Arn' --output text; else role=$(echo $id | cut -d'/' -f2); aws iam get-role --role-name $role --query 'Role.Arn' --output text; fi)
 :::
 
+#    **ONLY FOR MODULE 4: In case you will be deploying Remote Inference**
 
-    **ONLY FOR MODULE 4: In case you will be deploying Remote Inference**
-
-    - *RemoteInferenceClientId* ,*RemoteInferenceClientSecret* & *RemoteInferenceURL*: Enter your provided credentials and URL to enable Remote Inference LLM on Denver Datanetworks, leveraging Intel Gaudi 2 for optimized performance.
+#    - *RemoteInferenceClientId* ,*RemoteInferenceClientSecret* & *RemoteInferenceURL*: Enter your provided credentials and URL to enable Remote Inference LLM on Denver Datanetworks, leveraging Intel Gaudi 2 for optimized performance.
 
  :::alert
  Mark the checkbox next to `I acknowledge that AWS CloudFormation might create IAM resources`

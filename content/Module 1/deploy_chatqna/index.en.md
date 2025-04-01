@@ -9,11 +9,10 @@ In this section, you’ll deploy the OPEA blueprint for a RAG application (ChatQ
 
 ![OPEA Architecture](/static/images/opeaad.png)
 
-Since you already set up your access to your Kubernetes clustes from "Getting Set Up" section, you will now explore and learn what you have deployed in your environment.
+Since you already set up your access to your Kubernetes clusters from "Getting Set Up" section, you will now explore and learn what you have deployed in your environment.
 
 ### Step 1: Examine Cluster Resources
 
-1. Go to your CloudShell and deploy the ChatQnA ClourFormation template into your EKS Cluster
 
 :::code{showCopyAction=true language=bash}
 aws cloudformation execute-change-set --change-set-name default-change-set --stack-name OpeaChatQnAStack
@@ -22,7 +21,6 @@ aws cloudformation execute-change-set --change-set-name default-change-set --sta
 ### Step 2: Examine Cluster Resources
 
 Click on the assigned cluster name to explore the deployment. Each EKS cluster includes essential configurations, such as the Kubernetes version, networking setup, and logging options. Review these settings in the console to gain insight into the foundation of your application environment. Understanding these details will help in managing cluster operations and troubleshooting if needed.
-In this task we will focus on
 
 1. Click on **Resources**
 

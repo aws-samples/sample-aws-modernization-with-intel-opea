@@ -9,7 +9,7 @@ weight : 200
 You can interact with the Amazon Bedrock API through the AWS Software Development Kit (SDK) or the AWS CLI, and you can use Bedrock's native features to build your own RAG knowledge bases, agentic workflows, and guardrails. Integrating Bedrock with OPEA allows you to access an even larger selection of foundation models, as well as leverage the power of Bedrock's features in combination with OPEA.
 
 ## How Does the Architecture Change?
-Future integrations with OPEA will unlock the power of Bedrock features as well as Titan Embedding models, but for this module we'll concentrate exclusively on the LLM's. Thanks to the interchangeability offered by OPEA, most of the components from the default [ChatQnA example](https://github.com/opea-project/GenAIExamples/tree/main/ChatQnA) (Module 1). The TGI service (Hugging Face) is now replaced by bedrock container that can be seamlessly integrated into a new deployment. The architecture closely resembles the ChatQnA with the new component:
+Future integrations with OPEA will unlock the power of Bedrock features as well as Titan Embedding models, but for this module we'll concentrate exclusively on the LLM's. Thanks for the interchangeability offered by OPEA, most of the components are still being used from the ChatQnA example (Module 1). The TGI service from HuggingFace is replaced by Bedrock that can be seamlessly integrated into a new deployment. The architecture closely resembles the ChatQnA with a new container:
 
 - `chatqna-bedrock`
 
@@ -41,6 +41,9 @@ This module works with just about any text-generation LLM supported by Bedrock, 
 
 ![Model access](/static/images/model_access.png)
 
+**NOTE** : If it’s your first time enabling a model, click on “Enable specific models”:
+![Model access](/static/images/enable_models.png)enable_models.png
+
 4. At the top of the screen, click on the button that says `Modify Model Access`
 
 ![Alt text](/static/images/modify_modelacess.png)
@@ -71,13 +74,13 @@ chatqna-data-prep-deployment-c47d67f89-lplq8         1/1     Running   0        
 chatqna-deployment-7db8bf47fb-mjcxr                  1/1     Running   0          28s
 chatqna-nginx-deployment-656bc748d4-4wqjz            1/1     Running   0          28s
 chatqna-redis-vector-db-deployment-65cc8d87b-smqrb   1/1     Running   0          28s
-chatqna-retriever-usvc-deployment-55f5676745-5d5cj   0/1     Running   0          28s
+chatqna-retriever-usvc-deployment-55f5676745-5d5cj   1/1     Running   0          28s
 chatqna-tei-deployment-85d9484bf7-2l7jr              1/1     Running   0          28s
 chatqna-teirerank-deployment-589dd896d9-xjvmp        1/1     Running   0          28s
 :::
 
 :::alert
-It can take several minutes for Bedrock to fully initialize and be available. Only continue when you see the `chatqna-bedrock-deployment` pod in the `Running` state.
+It can take several minutes for Bedrock to fully initialize and be available. Only continue when you see the **EVERY POD** in the `1/1 Running` state.
 :::
 
 
