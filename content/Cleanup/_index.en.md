@@ -2,7 +2,8 @@
 title : "IMPORTANT:How to Clean Up Your Environment"
 weight : 700
 +++
-
+ 
+ 
 ## Overview
 
 After completing the workshop, or if you encounter any deployment failures, you should clean up your AWS resources to prevent unnecessary charges. This guide provides step-by-step instructions for properly removing all deployed resources.
