@@ -71,9 +71,8 @@ This service isn't directly exposed, but you can access it directly from the Loa
 You will use curl to send a request to an API endpoint to test the functionality of each microservice separately. The purpose is to ask a question, such as **"What was the revenue of Nike in 2023?"**, and verify that the API responds correctly. This helps ensure that all services are working as expected.
 
 ```bash
-curl http://<**Chatqna-ingress Load Balancer DNS**>/v1/chatqna     
-    -H "Content-Type: application/json"     
-    -d '{"messages": "What was the revenue of Nike in 2023?"}'
+
+curl -X POST http://<**Chatqna-ingress Load Balancer DNS**>/v1/chatqna  -H "Content-Type: application/json" -d '{"messages": [{"role": "user", "content": "What was the revenue of Nike in 2023?"}]}'
 ```
 
 You should receive an answer back, verifying that all the services in the RAG flow are working.
@@ -166,7 +165,7 @@ Specifically, this microservice receives data (such as documents), processes it 
 
 To test it and help the model answer the initial question **What was Nike revenue in 2023?**, you will need to upload a context file (revenue report) to be processed. 
 
-Execute the following command to download a sample [Nike revenue report](https://github.com/opea-project/GenAIComps/blob/main/comps/retrievers/redis/data/nke-10k-2023.pdf) to the nginx pod (if you are no longer logged in to the NGinx pod, be sure to use the above command to log in again):
+Execute the following command to download a sample [Nike revenue report](https://raw.githubusercontent.com/opea-project/GenAIComps/main/comps/third_parties/pathway/src/data/nke-10k-2023.pdf) to the nginx pod (if you are no longer logged in to the NGinx pod, be sure to use the above command to log in again):
 
 1.  Download the document to the microservice :
 ```bash
@@ -446,7 +445,7 @@ Use the load balancer URL you saved above in the below command to send the quest
 
 3. Run the curl to the load balancer again: 
 ```bash
-curl http://<**Chatqna-ingress Load Balancer DNS**>/v1/chatqna \
+curl http://<REPLACE**Chatqna-ingress Load Balancer DNS**>/v1/chatqna \
     -H "Content-Type: application/json" \
     -d '{"messages": "What was the revenue of Nike in 2023?"}'
 ```

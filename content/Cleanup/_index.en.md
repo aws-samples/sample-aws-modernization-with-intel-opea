@@ -1,6 +1,6 @@
 +++
-title : "IMPORTANT:How to Clean Up Your Environment"
-weight : 700
+title = "IMPORTANT:How to Clean Up Your Environment"
+weight = 1000
 +++
  
  
@@ -15,12 +15,12 @@ Follow these steps in the specified order to ensure all resources are properly d
 ### Step 1: Access AWS CloudFormation Console
 Navigate to the AWS CloudFormation console in your AWS Management Console.
 
-![CloudFormation Console](/static/images/cfn_clean.png)
+![CloudFormation Console](/images/cfn_clean.png)
 
 ### Step 2: Delete the Stacks in the Following Order
 For a proper cleanup, you must delete the stacks in this specific sequence as shown in the image below:
 
-![CloudFormation Stack Deletion Order](/static/images/Cleanup.png)
+![CloudFormation Stack Deletion Order](/images/Cleanup.png)
 
 1. **First, delete the OPEA blueprint stacks**
    * Select and delete any child stacks that were created during deployment (such as `OpeaChatQnAStack`)
@@ -53,7 +53,7 @@ For a proper cleanup, you must delete the stacks in this specific sequence as sh
      * Look for the bucket startin with `cdk....`.
      * Empty the bucket (delete all objects) before attempting to delete the bucket itself
 
-![CDK Stack in CloudFormation](/static/images/cdk_screen.png)
+![CDK Stack in CloudFormation](/images/cdk_screen.png)
 
 ## Final Verification
 

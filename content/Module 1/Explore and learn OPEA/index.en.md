@@ -71,9 +71,10 @@ This service isn't directly exposed, but you can access it directly from the Loa
 You will use curl to send a request to an API endpoint to test the functionality of each microservice separately. The purpose is to ask a question, such as **"What was the revenue of Nike in 2023?"**, and verify that the API responds correctly. This helps ensure that all services are working as expected.
 
 :::code{showCopyAction=true language=bash}
-curl http:// <**Chatqna-ingress Load Balancer DNS**>/v1/chatqna \
-    -H "Content-Type: application/json" \
-    -d '{"messages": "What was the revenue of Nike in 2023?"}'
+curl -X POST http:// <**Chatqna-ingress Load Balancer DNS**>/v1/chatqna \
+  -H "Content-Type: application/json" \
+  -d '{"messages": [{"role": "user", "content": "What was the revenue of Nike in 2023?"}]}'
+
 :::
 
 You should receive an answer back, verifying that all the services in the RAG flow are working.
@@ -270,8 +271,9 @@ echo $similar_docs
 :::
 
 :::alert
-The following output has been formatted for better readability. Your results will be presented in plain text and may vary slightly due to the similarity search algorithm. However, you can double check that the retrieved documents will be relevant to your initial query.
+REGULAR The following output has been formatted for better readability. Your results will be presented in plain text and may vary slightly due to the similarity search algorithm. However, you can double check that the retrieved documents will be relevant to your initial query.
 :::
+
 :::code{showCopyAction=false language=json }
 {
     "id": "eb5a39b6f8b42b90fbf9ebc5f850ffd5",

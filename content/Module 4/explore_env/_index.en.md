@@ -40,7 +40,7 @@ This module works with just about any text-generation LLM supported by Bedrock, 
 
 ![Model access](/images/model_access.png)
 
-4. At the top of the screen, click on the button that says `Modify Model Access`
+4. At the top of the screen, click on the button that says `Enable Specific Models`
 
 ![Alt text](/images/modify_modelacess.png)
 
@@ -51,17 +51,17 @@ This module works with just about any text-generation LLM supported by Bedrock, 
 {{% notice note %}}It may take a minute or two for the access to be granted, but don't worry it won't take much longer than that.
 {{% /notice %}}
 
-6. Once you've confirmed that model access has been granted, switch back to the `us-east-2` region where your EKS cluster is located.
+6. Once you've confirmed that model access has been granted, switch back to your region where your EKS cluster is located.
 
 ### Confirming Deployment
 Now let's confirm that our Bedrock deployment is complete. You can onitor the state of the Bedrock pods using the ```kubectl``` command:
-:::code
+```bash
 kubectl get pods -n bedrock
-:::
+```
 
 ...to get output like this:
 
-```bash
+```
 NAME                                                READY   STATUS    RESTARTS   AGE
 chatqna-bedrock-deployment-5b697d758-7gsdr           1/1     Running   0          28s
 chatqna-chatqna-ui-deployment-7fc549b9b5-jhntn       1/1     Running   0          28s
