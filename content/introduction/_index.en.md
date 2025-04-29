@@ -60,6 +60,6 @@ For detailed instructions on how to contribute, please check out our [Contributi
 
 #### Contact
 
-this course is intended to be a live guide for OPEA on AWS. If you face errors when deploying, please let us know:
+This course is intended to be a live guide for OPEA on AWS. If you face errors when deploying, please let us know:
 
 Ezequiel Lanza : ezequiel.lanza@intel.com

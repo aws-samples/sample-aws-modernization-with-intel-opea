@@ -197,18 +197,29 @@ In the returned response, we can see that the guardrails correctly identified an
 ```
 data: {"object":"chat.completion.chunk","id":"","created":1732299704,"model":"meta-llama/Meta-Llama-Guard-2-8B","system_fingerprint":"2.4.0-sha-0a655a0-intel-cpu","choices":[{"index":0,"delta":{"role":"assistant","content":"unsafe"},"logprobs":null,"finish_reason":null}],"usage":null}
 ```
-
+```
 data: {"object":"chat.completion.chunk","id":"","created":1732299704,"model":"meta-llama/Meta-Llama-Guard-2-8B","system_fingerprint":"2.4.0-sha-0a655a0-intel-cpu","choices":[{"index":0,"delta":{"role":"assistant","content":"\n"},"logprobs":null,"finish_reason":null}],"usage":null}
-
+```
+```
 data: {"object":"chat.completion.chunk","id":"","created":1732299705,"model":"meta-llama/Meta-Llama-Guard-2-8B","system_fingerprint":"2.4.0-sha-0a655a0-intel-cpu","choices":[{"index":0,"delta":{"role":"assistant","content":"S"},"logprobs":null,"finish_reason":null}],"usage":null}
-
+```
+```
 data: {"object":"chat.completion.chunk","id":"","created":1732299705,"model":"meta-llama/Meta-Llama-Guard-2-8B","system_fingerprint":"2.4.0-sha-0a655a0-intel-cpu","choices":[{"index":0,"delta":{"role":"assistant","content":"2"},"logprobs":null,"finish_reason":null}],"usage":null}
-
+```
+```
 data: {"object":"chat.completion.chunk","id":"","created":1732299705,"model":"meta-llama/Meta-Llama-Guard-2-8B","system_fingerprint":"2.4.0-sha-0a655a0-intel-cpu","choices":[{"index":0,"delta":{"role":"assistant","content":""},"logprobs":null,"finish_reason":"stop"}],"usage":null}
-
+```
+```
 data: [DONE]
-:::
+```
 Through vigilant application of these output guardrails, we can ensure that our AI system remains a reliable and trustworthy tool for users. It not only prevents the propagation of harmful content but also reinforces our commitment to upholding the highest standards of AI ethics and safety.
+
+### Exit the ngnix POD:
+You may find "pending jobs", please ignore it and try again.
+
+```
+root@chatqna-nginx-deployment-XXXXXXXXXXXX:/# exit
+```
 
 # Conclusion 
 In this workshop, you learned how the Guardrails microservice ensures the safety of AI interactions by filtering out unsafe prompts. You explored how the Meta-Llama-Guard-2-8B model classifies queries using a taxonomy of harmful content, preventing illegal or unethical requests from passing through the system. By testing both safe and unsafe prompts, you gained hands-on experience with how the system protects users and upholds ethical standards in AI applications.

@@ -30,6 +30,9 @@ What is OPEA?
 
 ![opea_wrong](/images/opea_wrong2.png)
 
+{{% notice note %}}The answer may vary slightly based on factors like input formatting. For instance, differences in capitalization can sometimes lead to different responses.
+{{% /notice %}}
+
 Notice that the initial answer provided by the chatbot is outdated or lacks specific information about OPEA. This is because OPEA is a relatively new project and wasn’t part of the dataset used to train the language model. Since most language models are static—they rely on data available at the time of training—they can’t automatically incorporate recent developments or information about new projects like OPEA.
 
 However, RAG offers a solution by enabling real-time context. Through the UI, you’ll see an icon that allows you to upload relevant context information. This action initiates a process where the document is sent to the **DataPrep** microservice to generate **embeddings**, and the data is then ingested into the **Vector Database**. 

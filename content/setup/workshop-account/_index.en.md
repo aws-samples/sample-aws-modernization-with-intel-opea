@@ -16,7 +16,6 @@ Creates templates for the following modules:
     -   Module 2: ChatQnA with Guardrails
     -   Module 3: ChatQnA with OpenSearch (open source) as the vector database
     -   Module 4: ChatQnA with Bedrock as the LLM
-    -   Module 5: ChatQnA with Remote Inference (Denvr) as the LLM
 
 # Step 1: Configure your access to the cluster
 

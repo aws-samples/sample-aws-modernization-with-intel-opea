@@ -1,6 +1,6 @@
 ---
 title : "IMPORTANT:How to Clean Up Your Environment"
-weight : 1500
+weight : 1000
 ---
 
 ## Overview
